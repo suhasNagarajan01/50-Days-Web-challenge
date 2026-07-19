@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color: #af550b;
+    --secondary-color: #861ea0;
+    --text-color: #3f3d3d;
+}
+
+
+.playwrite-id-tagline {
+  font-family: "Playwrite ID", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hero-section{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content:center;
+     min-height: 20vh
+}
+.heading-background{
+
+ color: var(--primary-color);
+ margin-bottom: 15px;
+ margin-top : 20px;
+ padding: 15px;
+ background-color: #9c4aa7;
+ border-width: 2.5px;
+ border-style: solid;
+ border-color: black;
+ border-radius: 40px;
+ display: inline-block;
+
+
+}
+
+body{
+    font-family: Arial ,sans-serif;
+    color: white;
+    background-color: #330b3c;
+}
+
+
+#community-logo{
+    src : "logo_favicon.png";
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    margin-right: 20px;
+    background-color: white;
+    background: size 50px;
+    border-radius: 42px;
+    opacity : 0.7;
+    display: flex;
+}
+
+.navigation-buttons{
+    background-color: rgb(211, 145, 222);
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    margin: 15px;
+    border-radius: 5px;
+}
+
+#navigation{
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content:space-between;
+  gap: 20px;
+}
+
+ol, ul{
+    padding-left: 25px;
+}
+#company-name{
+    align-items: center;
+}
+
+.sections-alignment{
+    text-align: left;
+    padding: 20px;
+    bottom: 20px;
+
+}
+
+.sub-heading{
+ margin-bottom: 10px;
+padding: 15px;
+ background-color: #9c4aa7;
+ border-width: 2.5px;
+ border-style: solid;
+ border-color: black;
+ border-radius: 40px;
+ display: inline-block;
+}
+
+.button-link{
+    text-decoration: none;
+    color: blue;
+
+}
+
+
+body{
+  /* 1. Tell CSS where your image file is located */
+  background-image: url("C:\\Users\\SUHAS\\50-Days-Web-challenge\\Day-02\\download-_2_.jpg");
+  /* 2. Prevent the image from repeating like tiles */
+  background-repeat: no-repeat;
+  /* 3. Center the image so the middle is always visible */
+  background-position: center;
+  /* 4. Crucial: Scale the image so it perfectly fills the entire screen */
+  background-size: cover;
+  /* 5. Keeps the background glued in place when you scroll down */
+  background-attachment: fixed;
+  /* 6. A fallback color in case your image takes a second to load */
+  background-color: #333333; 
+}
