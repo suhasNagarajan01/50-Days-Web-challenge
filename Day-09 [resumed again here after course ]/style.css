@@ -1,0 +1,237 @@
+:root{
+    padding: 0px;
+    margin:0px;
+    --primary-color: darkmagenta;
+    --secondary-color: white;
+
+}
+
+@font-face{
+    src: url("fonts\\ArchivoBlack-Regular.ttf");
+    font-family: "ArchivoBlack";
+}
+
+@font-face {
+    font-family: "Orbitron-variable";
+    src: url("fonts\\Orbitron-VariableFont_wght (1).ttf");
+}
+
+
+.register-button{
+    justify-content : center;
+    align-items: center;
+    padding: 5px;
+    background-color: orange;
+    border: 1px solid black;
+
+    border-radius: 10px;
+    a{text-decoration: none;font-style: bold; color : orangered;-webkit-text-stroke-width: 1px;}
+
+}
+
+
+
+
+/* HEADER */
+header{
+  background-color: darkmagenta;
+  margin: 0px;
+  padding:10px;
+  border-radius:0 0px;
+  position:sticky;
+  top: 0px;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  box-shadow: 0px 10px  50px black;
+  div{padding-bottom: 30px;display: flex;align-items: center;-webkit-text-stroke:1px;-webkit-text-stroke-color: black; padding:0%;font-family: "ArchivoBlack" ,Arial;font-size: 34px;}
+}
+header #synexus-logo{
+    width: 90px;
+    height: 90px;
+    background-color: white;
+    border-radius : 40px;
+
+}
+
+/* Notice the hyphen or exact ID match with no space */
+header #nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch;
+    box-sizing: border-box; /* Makes the <a> links span the full height of the header */
+}
+
+header nav a {
+    text-decoration: none;
+    font-family: "ArchivoBlack", Arial;
+    color: white;
+    font-size: 19px;
+    
+    /* Turn the link into a flex container to align its inner text to the bottom */
+    display: flex;
+    align-items: flex-end; /* Anchors the text to the bottom */
+    padding-bottom: 10px;  /* Adjusts how far off the bottom edge the text sits */
+    padding-left: 5px;    /* Gives the hover box some side breathing room */
+    padding-right: 5px;
+}
+
+
+header nav a:hover{
+    animation-name: hover-effect ;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+}
+@keyframes hover-effect{
+    to{
+        transform: opacity(100%);
+         background-color:
+          white;color:
+         black;};
+} 
+body{
+  margin:0px;
+  padding: 0px;
+  background-image: url(images/synexus-bg.jpg);
+  background-size:cover ;
+  background-repeat:no-repeat;
+  main{display: inline;}
+
+}
+
+
+/* HERO SECTION*/
+#hero-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+#tag-line{
+    color:white;
+    font-family: "Orbitron-variable";
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+}
+#community-join{background-color: rgb(86, 0, 126);
+    font-style: bold;font-size: 25px;
+    height: auto; color: white;
+    border-radius: 20px;padding-left: 20px;
+    padding-right: 20px;}
+
+#community-join:hover{
+    border: 2px solid white ;
+
+}
+
+.sub-heading{
+    font-family: "Orbitron-variable", Arial, Helvetica, sans-serif;
+ margin-bottom: 10px;
+padding: 15px;
+ background-color: #9c4aa7;
+ border-width: 2.5px;
+ border-style: solid;
+ border-color: black;
+ border-radius: 40px;
+ display: inline-block;
+
+}
+
+/* common sections decoration class*/
+section p{padding:10px; color:  white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+
+
+
+/* TEAM GRID SECTION */
+.team-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 25px;
+    display: flex;
+}
+
+.profile-card p{
+    width: 100%;
+    font-size: 14px;
+    opacity: 0.6;
+}
+.profile-card{
+    box-sizing: border-box;
+   min-block-size: 400px;
+ background-color: blueviolet;
+border: black;
+border: width 10px;
+border-style: solid;
+ width: 250px;
+
+ min-height: auto;
+ padding: 10px;
+ border-radius: 8px;
+ 
+flex-wrap: wrap;
+  flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+ h3 {
+    font-family: "ArchivoBlack";
+    margin-bottom: 15px;
+    padding: 10px;
+
+ }  /* this the profile name*/
+  /* this the profile poaition description */
+ img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+ } /* pofile pic polaceholder */
+
+button{
+    background-color: lightseagreen;
+    flex-wrap: wrap;
+    border-radius:15px;
+    padding: 4px;
+    a{text-decoration: none; color: black;font-family: "ArchivoBlack", Arial;}
+ }
+}
+
+.profile-card:hover{
+    animation-name: hover-scale-up;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    
+
+}
+@keyframes hover-scale-up{
+ to{
+    transform: scale(1.05) ;
+     background-color: rgb(72, 21, 120);
+
+ }
+}
+
+
+
+/* FOOTER SECTION */ 
+
+#footer{
+    display: flex;
+    background-color: rgb(57, 9, 79);
+    height: auto;
+    align-items: last baseline;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+
+}
+footer{display:flex;    justify-content: center;gap:20px;}
+
+#socials{
+    a{
+        align-items: center;
+    img{height:30px;border-color: rgb(57, 9, 79);border-style:solid;}
+    }
+}
