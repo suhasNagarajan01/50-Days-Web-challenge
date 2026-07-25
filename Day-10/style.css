@@ -96,8 +96,15 @@ body{
   margin:0px;
   padding: 0px;
   background-image: url(images/synexus-bg.jpg);
+    top: 0;
+  left: 0;
+  width: 100vw;  /* Force full viewport width */
+  height: 100vh; /* Force full viewport height */
+  z-index: -1;   /* Send it completely behind all content */
+  scale: 1;
   background-size:cover ;
   background-repeat:no-repeat;
+    background-attachment: fixed;
   main{display: inline;}
 
 }
