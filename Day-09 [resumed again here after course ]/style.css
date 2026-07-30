@@ -117,7 +117,7 @@ body{
     padding: 15px;
 }
 }
-#community-join{background-color: rgb(86, 0, 126);
+.community-join{background-color: rgb(86, 0, 126);
     height: auto; color: white;
     border-radius: 20px;padding-left: 20px;
     padding-right: 20px;

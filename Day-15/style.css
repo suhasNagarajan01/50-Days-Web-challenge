@@ -30,7 +30,9 @@
 
 }
 
-
+.skip-link{
+    visibility: none;
+}
 
 
 /* HEADER */
@@ -130,6 +132,9 @@ body{
 }
 .community-join{background-color: rgb(86, 0, 126);
     height: auto; color: white;
+    transition: 0.3s ease ;
+    transform:translateY(-2px) 1.2 ease;
+    
     border-radius: 20px;padding-left: 20px;
     padding-right: 20px;
     a{text-decoration: none;color: white;font-style: bold;font-size: 25px;}}
