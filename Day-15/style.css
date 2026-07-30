@@ -36,7 +36,6 @@
      color: white;
 }
 .skip-link:focus{
-   
     text-decoration: none;
     position: static;
 }
