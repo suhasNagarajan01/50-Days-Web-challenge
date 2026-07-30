@@ -31,7 +31,14 @@
 }
 
 .skip-link{
-    visibility: none;
+    position: absolute;
+     font-family: "Orbitron-variable", Arial, Helvetica, sans-serif;
+     color: white;
+}
+.skip-link:focus{
+   
+    text-decoration: none;
+    position: static;
 }
 
 

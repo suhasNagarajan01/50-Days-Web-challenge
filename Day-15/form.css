@@ -1,4 +1,7 @@
 @import url("style.css");
+
+
+
 #membership-form {
   display: flex;
   font-family: "Orbitron-variable", Verdana, Geneva, Tahoma, sans-serif;
@@ -15,7 +18,7 @@
 
     input, textarea {
       /* Shared styles */
-      transition: border 0.4s ease, background-color 0.4s ease; /* Fixed property */
+      transition: border 0.4s ease;
     }
 
     input {
@@ -34,6 +37,8 @@
     }
 
     input:focus, textarea:focus {
+      outline: none;
+      box-shadow: white;
       background-color: rgba(255, 255, 255, 0.541);
       color: black;
       border: 4px solid darkmagenta;
@@ -65,6 +70,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  a.skip-link{
+    visibility: none;
+}
 }
 #form-parent{
   h1,p{-webkit-text-stroke: 1px;-webkit-text-stroke-color: black;color:white;font-family: "ArchivoBlack", Arial, Helvetica, sans-serif;}
