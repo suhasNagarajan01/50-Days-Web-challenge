@@ -1,8 +1,8 @@
 console.log("Synexus Engine Initialized. Ready for logic.");
 const targetHeading = document.querySelector('#hero-section h2');
 const heroButton = document.querySelector('#hero-section button a');
-const navigationButton = document.getElementById("toggle-button")
-const navMenu = document.getElementById("nav-bar")
+const navigationButton = document.getElementById("toggle-button");
+const navMenu = document.getElementById("nav-bar");
 
 function joinCommunityButton(e) {
     e.preventDefault();
