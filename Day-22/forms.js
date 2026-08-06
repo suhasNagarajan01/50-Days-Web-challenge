@@ -1,6 +1,12 @@
-
 const navigationButton = document.getElementById("toggle-button");
 const navMenu = document.getElementById("nav-bar");
+const fullNameInput = document.getElementById("full-name");
+const usernameInput = document.getElementById("username");
+const emailInput = document.getElementById("email");
+const rollNumberInput = document.getElementById("roll-number");
+const aboutApplicantInput = document.getElementById("about-applicant");
+
+const membershipForm = document.querySelector("form")
 function navigationButtonForPhone(event){
     const isOpen = navMenu.classList.toggle('nav-bar-open');
   navigationButton.textContent = isOpen ? "X" : "☰";
@@ -10,15 +16,44 @@ function navigationButtonForPhone(event){
 
 navigationButton.addEventListener('click', navigationButtonForPhone ); 
 
+const savedDraft = localStorage.getItem("synexus_form_draft");
+
+if (savedDraft) {
+    const parsedData = JSON.parse(savedDraft);
+
+    fullNameInput.value = parsedData.fullName;
+    emailInput.value = parsedData.email;
+    rollNumberInput.value = parsedData.rollnumber;
+    aboutApplicantInput.value = parsedData.aboutApplicant;
+    usernameInput.value = parsedData.username;
+    
+}
 
 
-const fullNameInput = document.getElementById("full-name");
-const usernameInput = document.getElementById("username");
-const emailInput = document.getElementById("email");
-const rollNumberInput = document.getElementById("membership-form");
-const aboutApplicantInput = document.getElementById("about-applicant");
 
-const membershipForm = document.querySelector("form")
+
+
+
+function localDataStroage(event){
+  if (!fullNameInput || !emailInput) return;
+  const currentData = {
+    fullName : fullNameInput.value,
+    username : usernameInput.value,
+    email : emailInput.value,
+    rollnumber : rollNumberInput.value,
+    aboutApplicant : aboutApplicantInput.value
+  }
+  const synexus_form_draft  =  JSON.stringify(currentData);
+  localStorage.setItem("synexus_form_draft" , synexus_form_draft);
+}
+
+fullNameInput.addEventListener("input", localDataStroage);
+usernameInput.addEventListener("input", localDataStroage);
+emailInput.addEventListener("input", localDataStroage);
+rollNumberInput.addEventListener("input", localDataStroage);
+aboutApplicantInput.addEventListener("input",localDataStroage );
+
+
 
 if(membershipForm){
   membershipForm.addEventListener('submit', function(event) {
@@ -49,10 +84,7 @@ if(membershipForm){
             emailInput.style.borderColor = "white";
             membershipForm.reset();
         }
-
-
-
-
-
+        localStorage.removeItem("synexus_form_draft");
 })
+
 }

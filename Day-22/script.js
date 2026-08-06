@@ -79,6 +79,8 @@ function handleSearch() {
 
   renderProjects(filteredArray);
 }
+
+
 heroButton.addEventListener('click', joinCommunityButton);
 navigationButton.addEventListener('click', navigationButtonForPhone );
 searchInput.addEventListener("click",handleSearch    );
