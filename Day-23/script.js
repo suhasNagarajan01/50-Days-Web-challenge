@@ -6,6 +6,9 @@ const navMenu = document.getElementById("nav-bar");
 const gridContainer = document.getElementById('dynamic-grid');
 const searchInput = document.getElementById("search-projects");
 const body = document.querySelector("body")
+const projectModal = document.getElementById('project-modal');
+const modalTitle = document.getElementById('modal-title');
+const closeModalBtn = document.getElementById('close-modal');
 
 const themeToggle = document.getElementById("theme-toggle");
 themeToggle.addEventListener("click" , ()=>{
@@ -87,6 +90,7 @@ function renderProjects(dataArray){
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
                 <span class="badge">${project.status}</span>
+                <button class="view-btn" data-title="${project.title}">View Details</button>
             </div>
         `;
         gridContainer.innerHTML += cardHTML; 
@@ -109,6 +113,25 @@ function handleSearch() {
   renderProjects(filteredArray);
 }
 
+
+// 2. EVENT DELEGATION (The Core Logic)
+if (gridContainer) {
+    // We attach ONE listener to the parent container
+    gridContainer.addEventListener('click', function(e) {
+        const clickedButton = e.target.closest('.view-btn');
+        if (!clickedButton) return;
+        const projectTitle = clickedButton.getAttribute('data-title');
+        modalTitle.textContent = projectTitle;
+        projectModal.style.display = 'flex'; // Assuming you use flexbox to center the modal
+    });
+}
+
+// 3. CLOSING THE MODAL
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', function() {
+        projectModal.style.display = 'none';
+    });
+}
 
 heroButton.addEventListener('click', joinCommunityButton);
 navigationButton.addEventListener('click', navigationButtonForPhone );

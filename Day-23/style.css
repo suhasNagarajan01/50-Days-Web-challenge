@@ -389,6 +389,7 @@ section p {
 }
 
 .initiative {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -446,7 +447,7 @@ section p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border : 2px solid orange;
+  border : 1px solid orange;
   border-radius : 15px;
   background-color: burlywood;
   h3 ,p {
@@ -456,3 +457,22 @@ section p {
   p3{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
 }
 
+
+
+.modal-content{
+  box-sizing: border-box;
+  position: fixed;
+  padding : 15px;
+ bottom: 0;
+left: 0; /* Base position */
+
+ display: flex;  
+ flex-direction: column;
+  border: 2px solid white;
+   h3{font-family: "ArchivoBlack" , Arial, Helvetica, sans-serif;}
+  p3{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+ color : white;
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 2px;
+  transition: left 0.3s ease  ;
+}
