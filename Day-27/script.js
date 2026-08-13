@@ -17,9 +17,36 @@ let taskDeleteButton = ``
 themeToggle.addEventListener("click" , ()=>{
   document.body.classList.toggle("dark-theme");
 });
+const taskCards = document.querySelectorAll('.task-card');
+const kanbanColumns = document.querySelectorAll('.kanban-column .task-list');
 
+taskCards.forEach(card => {
+    
+    // When the user clicks and holds the card
+    card.addEventListener('dragstart', () => {
+        card.classList.add('is-dragging');
+        
+    });
 
+    // When the user lets go of the mouse click
+    card.addEventListener('dragend', () => {
+        // Step B: Remove the class so it drops normally
+        card.classList.remove('is-dragging');
+        
+    });
+});
 
+kanbanColumns.forEach(column => {
+    
+    column.addEventListener('dragover', (e) => {
+        
+
+        e.preventDefault();
+const draggedCard = document.querySelector('.is-dragging');
+         column.appendChild(draggedCard);
+        
+    });
+});
 const scrollObserver = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
         if (entry.isIntersecting){
@@ -200,7 +227,7 @@ func.apply(this , args);
 };
 }
 
-hiddenElements.array.forEach(element => {
+hiddenElements.forEach(element => {
    scrollObserver.observe(element) ;
 });
 

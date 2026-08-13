@@ -46,14 +46,14 @@
 
                     <input type="text" class="search-box" id="search-projects" placeholder="Search initiatives...">
 
-                    <div id="dynamic-grid" class="initiatives-grid">
+                    <div id="dynamic-grid" class="initiatives-grid hidden">
 
                     </div>
             </section>
                <section class="sections-alignment">
                 <h2 class="sub-heading">Core Team</h2>
                 <p style="margin-bottom: 10px;">Meet the brilliant minds behind Synexus. Our team is a diverse group of developers, designers, and strategists who are passionate about building scalable systems and deploying live solutions. Get to know the people who make our community thrive.</p>
-                <div class="team-grid">
+                <div class="team-grid hidden">
                     <div style="justify-content: center;" class="profile-card">
                          <img src="images/profile-pics-placeholder/profile-pic-1.jpg" alt="profile 1 image">
                         <h3><b>Profile 1</b></h3>
@@ -107,7 +107,31 @@
        
     </section>
 
+<div class="kanban-board">
+    
+    <div class="kanban-column" id="todo-col">
+        <h3>To Do</h3>
+        <div class="task-list">
+            <div class="task-card" draggable="true">Finalize UI Designs</div>
+            <div class="task-card" draggable="true">Write API Documentation</div>
+        </div>
+    </div>
 
+    <div class="kanban-column" id="progress-col">
+        <h3>In Progress</h3>
+        <div class="task-list">
+            <div class="task-card" draggable="true">Build Drag and Drop Logic</div>
+        </div>
+    </div>
+
+    <div class="kanban-column" id="done-col">
+        <h3>Done</h3>
+        <div class="task-list">
+            <div class="task-card" draggable="true">Phase 1 Integration</div>
+        </div>
+    </div>
+
+</div>
     <div id="project-modal" class="modal-overlay" style="display: none;">
     
         <div class="modal-content">
