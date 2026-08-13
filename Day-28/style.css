@@ -1,0 +1,584 @@
+:root{
+    padding: 0px;
+    margin:0px;
+    --primary-color: darkmagenta;
+    --secondary-color: white;
+}
+
+
+@font-face{
+    src: url("fonts\\ArchivoBlack-Regular.ttf");
+    font-family: "ArchivoBlack";
+}
+
+@font-face {
+    font-family: "Orbitron-variable";
+    src: url("fonts\\Orbitron-VariableFont_wght (1).ttf");
+}
+
+.hidden{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.show{
+   opacity: 1;
+   transform: translateY(0);   
+}
+
+.kanban-board{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  max-width : 50%;
+  min-width: 0px;
+  background-color: burlywood;
+  justify-self: center;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 2px solid red;
+  border-radius: 8px;
+  margin: 5px;
+  @media (max-width: 780px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  padding: 10px;
+
+  }
+}
+.search-box{
+ color : black;
+ font-family: "Orbitron-variable" , 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.dark-theme{
+  margin:0px;
+  padding :0px;
+}
+.dark-theme::before {
+  background-image: url("images/synexus-bg\ -\ Edited.jpg");
+}
+.register-button{
+    justify-content : center;
+    align-items: center;
+    padding: 5px;
+    background-color: orange;
+    border: 1px solid black;
+
+    border-radius: 10px;
+    a{text-decoration: none;font-style: bold; color : orangered;-webkit-text-stroke-width: 1px;}
+
+}
+
+.skip-link{
+  position: absolute;
+   z-index: -3;
+     font-family: "Orbitron-variable", Arial, Helvetica, sans-serif;
+     color: white;
+}
+.skip-link:focus{
+    text-decoration: none;
+    position: static;
+}
+
+
+/* HEADER */
+header {
+  background-color:var(--primary-color);
+  margin: 0;
+  padding: 10px 20px;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#company-name {
+  -webkit-text-stroke: 1px black;
+  font-family: "ArchivoBlack", Arial;
+  font-size: 34px;
+}
+
+header #synexus-logo {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Nav Bar Desktop */
+header #nav-bar {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-evenly;
+}
+
+header nav a { /* this navigation bar is a flex container and a are the children in the container */
+  text-decoration: none;
+  font-family: "ArchivoBlack", Arial;
+  color: white;
+  font-size: 19px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease; /* this  transition property changes the specified propeties , like :hover etc */
+}
+
+header nav a:hover {
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+}
+
+header #toggle-button {
+  background-color: coral;
+  border: none;
+  font-size: 24px;
+  padding: 6px 16px;
+  border-radius: 10px;
+  cursor: pointer; /* changes  cursor into a hand*/
+  color: white;
+}
+
+@media (min-width: 781px) {
+  #toggle-button {
+    display: none; /* Hide hamburger on desktop */
+  }
+}
+
+/* MOBILE HEADER & OVERLAY NAV */
+@media (max-width: 780px) {
+  body {
+    overflow-x: clip; /* Guards against horizontal scroll */
+  }
+
+  header {
+    position: sticky; /* Keeps the absolute mobile nav anchored to header */
+    width: 100%;
+  }
+
+  /* Hide normal horizontal links on mobile */
+  #nav-bar a {
+    display: none;
+  }
+
+  /* OPEN MOBILE NAV DROPDOWN */
+  #nav-bar.nav-bar-open {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+  }
+
+  /* Show links full width inside mobile menu */
+  #nav-bar.nav-bar-open a {
+    display: block;
+    text-align: center;
+    width: 80%;
+    padding: 10px;
+  }
+}
+
+
+
+
+/* 1. Reset Body and prevent white background showing through */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative; /* Background properties */
+}
+
+/* 2. Hardware-accelerated fixed background */
+body::before { /* the given content is specified before the tag , this avoid cluttery html*/
+  content: "";
+  background-image: url("images/synexus-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.0);
+  background-blend-mode: normal ;
+  position: fixed; /* Fixed relative to viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Sits completely behind all content */
+
+}
+
+/* Ensure main takes full layout block space */
+
+/* HERO SECTION */
+#hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#hero-section #tag-line {
+  color: white;
+  font-family: "Orbitron-variable", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+/* COMMUNITY JOIN BUTTON */
+.community-join {
+  background-color: rgb(86, 0, 126);
+  height: auto;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 20px;
+  border: 2px solid transparent; /* Prevents button jump on hover */
+  
+  /* Smooth transition for hover effects */
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.community-join a,
+input {
+  text-decoration: none;
+  color: white;
+  font-weight: bold; /* Fixed: font-weight instead of font-style */
+  font-size: 25px;
+}
+
+.community-join:hover {
+  border-color: white;
+  transform: translateY(-2px); /* Fixed: valid transform syntax */
+  background-color: rgb(110, 0, 160);
+}
+
+/* SUB HEADINGS */
+.sub-heading {
+  font-family: "Orbitron-variable", Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+  padding: 12px 24px;
+  background-color: #9c4aa7;
+  border: 2.5px solid black;
+  border-radius: 40px;
+  display: inline-block;
+}
+
+/* SECTION PARAGRAPHS */
+section p {
+  padding: 10px;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif;
+}
+
+
+/* TEAM GRID SECTION */
+/* TEAM GRID CONTAINER */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center cards nicely when wrapping */
+  gap: 20px;               /* Clean equal spacing between cards */
+  padding-bottom: 25px;
+}
+
+/* PROFILE CARD */
+.profile-card {
+  box-sizing: border-box;
+  display: flex;             /* FIXED: Added display flex */
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Even vertical alignment */
+  text-align: center;
+  
+  width: 250px;
+  min-height: 380px;
+  padding: 20px 15px;
+  
+  background-color: blueviolet;
+  border: 3px solid black;   /* FIXED: Clean border shorthand */
+  border-radius: 12px;
+  
+  /* Smooth hover transition instead of sluggish @keyframes */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+  background-color: rgb(72, 21, 120);
+}
+
+/* PROFILE CARD ELEMENTS */
+.profile-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;       /* FIXED: Perfect circular crop */
+  object-fit: cover;        /* Prevents image distortion */
+  border: 2px solid white;
+}
+
+.profile-card h3 {
+  font-family: "ArchivoBlack", sans-serif;
+  margin: 10px 0 5px 0;
+  color: white;
+}
+
+.profile-card p {
+  width: 100%;
+  font-size: 14px;
+  opacity: 0.8;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.profile-card button {
+  background-color: lightseagreen;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.profile-card button:hover {
+  background-color: #20b2aa;
+}
+
+.profile-card button a {
+  text-decoration: none;
+  color: black;
+  font-family: "ArchivoBlack", Arial;
+  font-size: 14px;
+}
+
+
+/* FOOTER SECTION */
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgb(57, 9, 79);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  box-sizing: border-box;
+}
+
+#socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#socials a {
+  display: flex;
+  align-items: center;
+}
+
+#socials img {
+  height: 30px;
+  width: auto;
+  transition: transform 0.2s ease;
+}
+
+#socials img:hover {
+  transform: scale(1.1);
+}
+
+/* INITIATIVES GRID SECTION */
+.initiatives-grid {
+  margin: 20px 10px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.featured {
+  grid-column: span 3;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+  border-radius: 25px;
+  background-color: burlywood;
+  box-shadow: 0px 4px 20px rgba(107, 6, 6, 0.6);
+}
+
+.initiative {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 25px;
+  background-color: burlywood;
+  
+}
+
+/* Shared typography for initiative cards */
+.featured h3, 
+.initiative h3 {
+  color: black;
+  font-family: "ArchivoBlack", Verdana, sans-serif;
+  margin-bottom: 10px;
+}
+
+.featured p, 
+.initiative p {
+  color: black;
+  font-family: 'Lucida Sans', Geneva, sans-serif;
+  text-align: center;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 900px) {
+  .initiatives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured {
+    grid-column: span 2; /* Spans 2 columns on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .initiatives-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured {
+    grid-column: auto; /* Takes single column on mobile */
+  }
+
+  #footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+#testimonials-container{
+  margin : 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border : 1px solid orange;
+  border-radius : 15px;
+  background-color: burlywood;
+  h3 ,p {
+    color : black;
+  }
+  h3{font-family: "ArchivoBlack" , Arial, Helvetica, sans-serif;}
+  p3{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+}
+
+
+
+.modal-content{
+  box-sizing: border-box;
+  position: fixed;
+  padding : 15px;
+ bottom: 0;
+left: 0; /* Base position */
+
+ display: flex;  
+ flex-direction: column;
+  border: 2px solid white;
+   h3{font-family: "ArchivoBlack" , Arial, Helvetica, sans-serif;}
+  p3{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+ color : white;
+  background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 2px;
+  transition: left 0.3s ease  ;
+}
+
+#task-ui {
+  display: flex;
+  justify-content: center; /* Centers the card horizontally */
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+
+  /* The task card container */
+  div {
+    display: flex;           /* REQUIRED for flex-direction and gap to work */
+    flex-direction: column;  /* Stacks input and button vertically */
+    gap: 10px;               /* Automatically spaces all elements inside by 10px */
+    
+    width: 100%;
+    max-width: 450px;        /* Takes full width on mobile, stops expanding at 450px on desktop */
+    padding: 15px;
+    background-color: burlywood;
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    /* Text input */
+    input[type="text"] {    
+      width: 100%;
+      min-width: 0;          /* Prevents overflow in flex layouts */
+      padding: 10px;
+      color: black;
+      font-family: "Orbitron-variable", Verdana, Geneva, Tahoma, sans-serif;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Add Task Button */
+    #add-task-btn {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+      border-radius: 4px;
+    }          
+
+  li{
+ display: flex;
+   align-items: center;
+
+input[type="checkbox"] {
+    cursor: pointer;
+    /* FIX: Use explicit width/height instead of padding */
+    width: 20px;
+    height: 20px;
+    /* FIX: Use specific pixel margins instead of auto */
+    margin: 0 10px; 
+    accent-color: #f59e0b;
+  }
+
+  }}}
+
+.delete-btn{
+     
+    align-items: center;
+   margin: 0px;
+   line-height:1;
+    width: fit-content;
+    height: fit-content;
+
+    border-radius: 4px;
+    background-color: red;
+    color: white;    
+   
+}
+

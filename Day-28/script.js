@@ -28,7 +28,15 @@ const routes ={
             <p>Page not found. You strayed from the path.</p>
             <a href="/" class="nav-link btn-primary">Go Home</a>
         </div>
-    `
+    `,
+    "/": `            <section id="hero-section">
+                 <h2 id="tag-line">Empowering next generation engineers</h2>
+                 <button class="community-join"><a title="join us!" href="form.html">Join the community 📑</a></button>
+            </section>
+    `,
+
+    
+
 }
 
 
