@@ -1,5 +1,3 @@
-
-
 console.log("Synexus Engine Initialized. Ready for logic.");
 const targetHeading = document.querySelector('#hero-section h2');
 const heroButton = document.querySelector('#hero-section button a');
@@ -19,6 +17,22 @@ let taskDeleteButton = ``
 themeToggle.addEventListener("click" , ()=>{
   document.body.classList.toggle("dark-theme");
 });
+
+
+
+const scrollObserver = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+        if (entry.isIntersecting){
+            entry.target.classList.add("show");
+            scrollObserver.unobserve(entry.target);
+        }
+        else{
+            entry.target.classList.remove("show");
+        }
+    })
+})
+
+const hiddenElements = document.querySelectorAll('.hidden');
 
 const projectsData = [
     {
@@ -57,9 +71,6 @@ function updateTestimonial(){
         currentIndex =0;
     }
 }
-
-
-
 
 
 function joinCommunityButton(e) {
@@ -107,9 +118,11 @@ function renderProjects(dataArray){
 // Initial Render (Show all projects when the page loads)
 renderProjects(projectsData);
 
-function handleSearch() {
-  const query = searchInput.value.toLowerCase().trim();
-
+function executeHeavySearch() {
+  const searchTerm = event.target.value;
+  console.log(`Fectching results for : "${searchTerm}"`);
+  const query = searchTerm.toLowerCase().trim();
+  
   const filteredArray = projectsData.filter(project => {
     if (!query) return true;
     const combinedText = `${project.title} ${project.description}`.toLowerCase();
@@ -139,13 +152,10 @@ if (closeModalBtn) {
     });
 }
 
-function debounce(func, delay=300){
-    let timeoutId;
-    return function(args){
-        
-    }
+if(searchInput){
+    const optimizedSearch = debounce(executeHeavySearch, 400);
+    searchInput.addEventListener("input", optimizedSearch);
 }
-
 
 function renderTask(taskObject){
     const tasklist = document.querySelector("#task-list");
@@ -179,9 +189,25 @@ function deletetask(event){
     taskState = taskState.filter(taskState => taskState.id != Number(buttonID));
     renderTask(taskState);
 }
+
+function debounce(func, delay=300){
+    let timeoutID;
+    return function(){
+    clearTimeout(timeoutId);
+    timeoutID = setTimeout(()=>{
+func.apply(this , args);
+    }, delay);
+};
+}
+
+hiddenElements.array.forEach(element => {
+   scrollObserver.observe(element) ;
+});
+
+
 heroButton.addEventListener('click', joinCommunityButton);
 navigationButton.addEventListener('click', navigationButtonForPhone );
-searchInput.addEventListener("click",handleSearch    );
+searchInput.addEventListener("click",executeHeavySearch);
 addTaskButton.addEventListener("click", addTask);
 
 updateTestimonial();

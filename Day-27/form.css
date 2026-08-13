@@ -1,0 +1,139 @@
+@import url("style.css");
+
+
+
+
+#membership-form {
+  overflow-x: hidden;
+  display: flex;
+  font-family: "Orbitron-variable", Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(245, 242, 242);
+  background-color: rgb(156, 112, 28);
+  padding: 20px;
+  border-radius: 15px;
+
+  /* Added nested div wrapper */
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    input, textarea {
+      /* Shared styles */
+      transition: border 0.4s ease;
+    }
+
+    input {
+      border: 1px solid black;
+      border-radius: 15px;
+      color: black;
+    }
+
+    textarea {
+      border: 1px solid black;
+      border-radius: 15px;
+      border-bottom-right-radius: 0px;
+      resize: vertical;
+      max-height: 100px;
+      width: 315px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      outline-offset: 3px;
+      outline-color: white;
+      background-color: rgba(255, 255, 255, 0.541);
+      color: black;
+      border: 4px solid darkmagenta;
+    }
+
+    /* Target disabled inputs/textareas inside your form */
+    input:disabled, textarea:disabled {
+      background-color: rgba(120, 120, 120, 0.4);
+      color: #777;
+      border: 1px solid #666;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+}
+
+#form-body{
+  /* 1. Tell CSS where your image file is located */
+  background-image: url("images/synexus-bg.jpg");
+  top: 0;
+  left: 0;
+  width: 100vw;  /* Force full viewport width */
+  height: 100vh; /* Force full viewport height */
+  z-index: -1;   /* Send it completely behind all content */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  a.skip-link{
+    visibility: none;
+}
+}
+
+
+#form-parent{
+  h1,p{
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+  color:white;
+  font-family: "ArchivoBlack", Arial, Helvetica, sans-serif;
+}
+  
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+
+#form-buttons-grid{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 40px ;
+    input[type="submit"],input[type="reset"]{
+    color: white;
+  }
+  input:hover{
+    border: 3px solid white;
+  }
+  input:hover{
+    background-color: rgb(84, 3, 84);
+  }
+  input:disabled{
+  
+    background-color: grey;
+  }
+   input:active{
+    background-color: blanchedalmond;
+    color: black;
+   }
+}
+
+/* By default, style the button as disabled when the form is INVALID */
+#membership-form:has(:invalid) input[type="submit"] {
+  opacity: 0.5;
+  background-color: grey;
+  cursor: not-allowed;
+  pointer-events: none; /* Disables click interactions */
+}
+
+/* Optional: Expressly style it when the form IS valid */
+#membership-form:has(:valid) input[type="submit"] {
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px){
+  #membership-form{
+    scale: 0.7;
+}}
