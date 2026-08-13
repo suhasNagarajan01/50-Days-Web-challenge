@@ -26,6 +26,28 @@
    opacity: 1;
    transform: translateY(0);   
 }
+
+.kanban-board{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  max-width : 50%;
+  min-width: 0px;
+  background-color: burlywood;
+  justify-self: center;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 2px solid red;
+  border-radius: 8px;
+  margin: 5px;
+  @media (max-width: 780px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  padding: 10px;
+
+  }
+}
 .search-box{
  color : black;
  font-family: "Orbitron-variable" , 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
